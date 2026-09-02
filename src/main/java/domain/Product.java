@@ -1,8 +1,10 @@
-package com.inventario.inventory.domain;
+package domain;
 
-import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "products")
@@ -12,33 +14,23 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String name;
+    private Double price;
+    private Integer stock;
 
-    private String descripcion;
-
-    private BigDecimal precio;
-
-    private Integer cantidadDisponible;
-
-    private String categoria;
-
-    private LocalDateTime fechaCreacion;
-
+    // Constructor vacío obligatorio para JPA
     public Product() {
     }
 
-    public Product(Long id, String nombre, String descripcion, BigDecimal precio,
-                   Integer cantidadDisponible, String categoria,
-                   LocalDateTime fechaCreacion) {
+    // Constructor con parámetros
+    public Product(Long id, String name, Double price, Integer stock) {
         this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.precio = precio;
-        this.cantidadDisponible = cantidadDisponible;
-        this.categoria = categoria;
-        this.fechaCreacion = fechaCreacion;
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
     }
 
+    // Métodos Getters y Setters
     public Long getId() {
         return id;
     }
@@ -47,51 +39,27 @@ public class Product {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public BigDecimal getPrecio() {
-        return precio;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setPrecio(BigDecimal precio) {
-        this.precio = precio;
-    }
-
-    public Integer getCantidadDisponible() {
-        return cantidadDisponible;
-    }
-
-    public void setCantidadDisponible(Integer cantidadDisponible) {
-        this.cantidadDisponible = cantidadDisponible;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 }

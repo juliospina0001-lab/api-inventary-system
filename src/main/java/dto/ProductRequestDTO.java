@@ -1,28 +1,18 @@
 package dto;
 
-public class ProductResponseDTO {
+public class ProductRequestDTO {
 
-    private Long id;
     private String name;
     private Double price;
     private Integer stock;
 
-    public ProductResponseDTO() {
+    public ProductRequestDTO() {
     }
 
-    public ProductResponseDTO(Long id, String name, Double price, Integer stock) {
-        this.id = id;
+    public ProductRequestDTO(String name, Double price, Integer stock) {
         this.name = name;
         this.price = price;
         this.stock = stock;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -49,3 +39,4 @@ public class ProductResponseDTO {
         this.stock = stock;
     }
 }
+
